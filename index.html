@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kanish Vyiramudi | Stark Systems UI</title>
+
+<!-- THREE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background: black;
+    color: #4dd0e1;
+    overflow-x: hidden;
+}
+
+/* VIDEO BACKGROUND */
+#bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.4);
+}
+
+/* OVERLAY */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0,0,0,.2), rgba(0,0,0,.85));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* THREE CANVAS */
+canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* CONTENT */
+main {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    min-height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HUD CARD */
+.hud-card {
+    background: rgba(0, 15, 30, 0.85);
+    border: 1px solid #4dd0e1;
+    border-left: 4px solid #FFD700;
+    padding: 25px;
+    border-radius: 0 15px 0 15px;
+    width: 85%;
+    max-width: 950px;
+    backdrop-filter: blur(10px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 15px;
+}
+
+.project-item {
+    border-top: 1px solid rgba(77,208,225,0.3);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+h1 {
+    font-family: 'Orbitron';
+    color: #FFD700;
+    font-size: 3.5rem;
+    text-shadow: 0 0 15px red;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Orbitron';
+    color: #4dd0e1;
+    border-bottom: 1px solid #4dd0e1;
+    display: inline-block;
+}
+
+h4 {
+    font-family: 'Orbitron';
+    color: #FFD700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+p { color: white; }
+
+.badge {
+    background: rgba(77,208,225,0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: .8rem;
+    margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<video id="bg-video" autoplay muted loop playsinline>
+    <source src="123.mp4" type="video/mp4">
+</video>
+
+<canvas id="bg"></canvas>
+
+<main>
+
+<!-- HERO -->
+<section>
+<div class="reveal" style="text-align:center">
+    <h1 id="type-name"></h1>
+    <p><strong>CORE IDENTITY:</strong> DATA SCIENCE INTERN | B.TECH ENGINEERING</p>
+    <p>CGPA: 7.05 | STATUS: ACTIVE</p>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<div class="hud-card reveal">
+    <h2>SYSTEM CORE (SKILLS)</h2>
+    <div class="grid">
+        <div><h4>LOGIC</h4><p>Python, C++, C, SQL</p></div>
+        <div><h4>AI ENGINE</h4><p>PyTorch, Scikit-learn, XGBoost</p></div>
+        <div><h4>DATA LABS</h4><p>Pandas, NumPy, MySQL, MongoDB</p></div>
+        <div><h4>INFRA</h4><p>AWS, Docker, Git, Google Colab</p></div>
+    </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+<div class="hud-card reveal">
+    <h2>MISSION LOGS (PROJECTS)</h2>
+
+    <div class="project-item">
+        <h4>FRAUDSPY: ANOMALY DETECTION</h4>
+        <p>Unsupervised fraud detection system simulating banking security. Identifies suspicious transaction patterns without labeled data.</p>
+        <span class="badge">Streamlit</span>
+        <span class="badge">Python</span>
+        <span class="badge">Unsupervised Learning</span>
+    </div>
+
+    <div class="project-item">
+        <h4>STUDENT STRESS PREDICTOR</h4>
+        <p>Analyzes academic, behavioral, and lifestyle data to classify stress levels (Low/Med/High).</p>
+        <span class="badge">Scikit-learn</span>
+        <span class="badge">Matplotlib</span>
+        <span class="badge">Pandas</span>
+    </div>
+
+    <div class="project-item">
+        <h4>AI RECIPE GENERATOR</h4>
+        <p>Dynamic web application using OpenAI API to generate personalized recipes.</p>
+        <span class="badge">OpenAI API</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">HTML/CSS</span>
+    </div>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+<div class="hud-card reveal">
+    <h2>ENHANCEMENTS (CERTIFICATIONS)</h2>
+    <p>• Applied Machine Learning Phase 1 & 2 - IVIS Labs</p>
+    <p>• Full Stack Development (Python, IoT) - IQUEST Technologies</p>
+    <p>• Stress Prediction Project Completion - Torus Solutions</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section>
+<div class="hud-card reveal" style="text-align:center">
+    <h2>COMMS INTERFACE</h2>
+    <p>kanishkani252@gmail.com | +91 9945239326</p>
+    <p>Mysuru, Karnataka 570019</p>
+</div>
+</section>
+
+</main>
+
+<script>
+/* TYPING EFFECT */
+const nameText = "KANISH VYIRAMUDI";
+let i = 0;
+const speed = 120;
+const target = document.getElementById("type-name");
+
+function typeWriter() {
+    if (i < nameText.length) {
+        target.textContent += nameText.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+typeWriter();
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* THREE BACKGROUND */
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: bg, alpha:true });
+renderer.setSize(innerWidth, innerHeight);
+camera.position.z = 30;
+
+const arc = new THREE.Mesh(
+    new THREE.TorusGeometry(10, 0.1, 16, 100),
+    new THREE.MeshBasicMaterial({ color: 0x4dd0e1, wireframe:true, transparent:true, opacity:0.3 })
+);
+scene.add(arc);
+
+function animate() {
+    requestAnimationFrame(animate);
+    arc.rotation.z += 0.002;
+    renderer.render(scene, camera);
+}
+animate();
+
+addEventListener("resize", () => {
+    camera.aspect = innerWidth/innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+
+</body>
+</html>
